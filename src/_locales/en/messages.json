@@ -1,0 +1,20 @@
+{
+	"description": {
+		"message": "Send selected text with Gmail"
+	},
+	"menu_title": {
+		"message": "Send selected text with Gmail"
+	},
+	"menu_options": {
+		"message": "Options"
+	},
+	"label_mail_list": {
+		"message": "Enter email(s) below, separate new line."
+	},
+	"email_error": {
+		"message": "Some email address(es) is not correct!"
+	},
+	"data_saved": {
+		"message": "Data saved."
+	}
+}

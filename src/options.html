@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Options for Send with Gmail</title>
+	<style>
+		body{
+			font-family: Roboto, sans-serif;
+			font-size: 1rem;
+			margin: 0;
+		}
+		#title{
+			display: flex;
+			align-items: center;
+		}
+		#title img{
+			margin-right: 1em;
+		}
+		#title, form{
+			padding: 1em;
+		}
+		button{
+			text-transform: uppercase;
+		}
+	</style>
+</head>
+<body>
+	<div id="title">
+		<img src="icons/icon_48.png" alt="">
+		<span>Send with Gmail</span>
+	</div>
+	
+	<form>
+		<label for="mail_list" data-locale="label_mail_list"></label>
+		<br>
+		<textarea id="mail_list" cols="40" rows="10"></textarea>
+		<br>
+		<button type="button" data-locale="button_save"></button>
+	</form>
+	
+	<script type="module" src="options.js"></script>
+</body>
+</html>

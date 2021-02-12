@@ -1,0 +1,23 @@
+{
+	"description": {
+		"message": "Отправить выделенный текст через Gmail"
+	},
+	"menu_title": {
+		"message": "Отправить выделенное через Gmail"
+	},
+	"menu_options": {
+		"message": "Параметры"
+	},
+	"label_mail_list": {
+		"message": "Введите адреса ниже, разделив новой строкой."
+	},
+	"button_save": {
+		"message": "сохранить"
+	},
+	"email_error": {
+		"message": "Некоторые адрес(а) некорректны!"
+	},
+	"data_saved": {
+		"message": "Данные сохранены."
+	}
+}
