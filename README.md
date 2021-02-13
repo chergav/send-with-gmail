@@ -2,6 +2,8 @@
 
 Send selected text with Gmail
 
+![screenshot](https://raw.githubusercontent.com/chergav/send-with-gmail/master/docs/screenshot.png)
+
 ## Install extension
 
 * Clone https://github.com/chergav/send-with-gmail
