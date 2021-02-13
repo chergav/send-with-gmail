@@ -39,7 +39,6 @@ import { Storage } from './storage.js';
 			parentId: "sendFromGmail",
 			contexts: ["selection"],
 			onclick: () => chrome.runtime.openOptionsPage()
-			//window.open(chrome.runtime.getURL('options.html')) 
 		});
 	}
 

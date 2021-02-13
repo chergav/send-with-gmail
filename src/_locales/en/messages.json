@@ -11,6 +11,9 @@
 	"label_mail_list": {
 		"message": "Enter email(s) below, separate new line."
 	},
+	"button_save": {
+		"message": "save"
+	},
 	"email_error": {
 		"message": "Some email address(es) is not correct!"
 	},

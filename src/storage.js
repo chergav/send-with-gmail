@@ -17,7 +17,8 @@ export class Storage {
 	}
 
 	async getSettings() {
-		this._storage.get(null, d => console.log(d));
+		//this._storage.clear();
+		//this._storage.get(null, d => console.log(d));
 		return await this._getStorageData('settings');
 	}
 }
