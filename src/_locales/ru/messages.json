@@ -8,6 +8,9 @@
 	"menu_options": {
 		"message": "Параметры"
 	},
+	"options_title": {
+		"message": "Настройки расширения \"Send with Gmail\""
+	},
 	"label_mail_list": {
 		"message": "Введите адреса ниже, разделив новой строкой."
 	},

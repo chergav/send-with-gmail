@@ -8,6 +8,9 @@
 	"menu_options": {
 		"message": "Options"
 	},
+	"options_title": {
+		"message": "Options for Send with Gmail"
+	},
 	"label_mail_list": {
 		"message": "Enter email(s) below, separate new line."
 	},
