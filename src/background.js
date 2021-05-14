@@ -1,6 +1,6 @@
 import { Storage } from './storage.js';
 
-(async () => {
+(() => {
 	const storage = new Storage();
 	const i18n = message => chrome.i18n.getMessage(message);
 
@@ -44,11 +44,12 @@ import { Storage } from './storage.js';
 
 	function sendEmail(to, body) {
 		const subject = (new Date).toLocaleString();
-		const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&tf=1
-						&to=${to}
-						&su=${encodeURIComponent(subject)}
-						&body=${encodeURIComponent(body)}
-						`;
+		const gmailURL = `
+			https://mail.google.com/mail/?view=cm&fs=1&tf=1
+			&to=${to}
+			&su=${encodeURIComponent(subject)}
+			&body=${encodeURIComponent(body)}
+		`;
 		chrome.windows.create({
 			type: "popup",
 			url: gmailURL,

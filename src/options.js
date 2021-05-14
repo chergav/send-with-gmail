@@ -20,14 +20,14 @@ import { Storage } from './storage.js';
 	}
 
 	function checkEmails(mla) {
-		let re = /\S+@\S+\.\S+/;
+		const re = /\S+@\S+\.\S+/;
 		if (!mla.every(i => re.test(i)))
 			return false;
 		return true;
 	}
 
 	function saveOptions() {
-		let mailListArr = mailList.value.split('\n').map(i => i.trim()).filter(Boolean);
+		const mailListArr = mailList.value.split('\n').map(i => i.trim()).filter(Boolean);
 		if (!checkEmails(mailListArr)) {
 			alert(i18n('email_error'));
 			return;
