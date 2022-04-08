@@ -9,16 +9,27 @@
 		"message": "Options"
 	},
 	"options_title": {
-		"message": "Options for Send with Gmail"
+		"message": "Options for $NAME$",
+		"placeholders": {
+			"name": {
+				"content": "Send with Gmail"
+			}
+		}
 	},
 	"label_mail_list": {
 		"message": "Enter email(s) below, separate new line."
 	},
-	"button_save": {
-		"message": "save"
+	"button_add": {
+		"message": "add"
+	},
+	"button_delete": {
+		"message": "delete"
 	},
 	"email_error": {
-		"message": "Some email address(es) is not correct!"
+		"message": "Email address is not correct!"
+	},
+	"email_exist": {
+		"message": "Email address already in list."
 	},
 	"data_saved": {
 		"message": "Data saved."

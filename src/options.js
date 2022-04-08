@@ -1,38 +1,72 @@
-import { Storage } from './storage.js';
+import storage from './storage.js';
 
-(async () => {
-	const storage = new Storage();
-	const i18n = message => chrome.i18n.getMessage(message);
+const inputEmail = document.querySelector('#inputEmail');
+const buttonAdd = document.querySelector('#buttonAdd');
+const mailList = document.querySelector('#mailList');
 
-	document.querySelectorAll('[data-locale]').forEach(i => 
-		i.textContent = i18n(i.dataset.locale)
+document
+	.querySelectorAll('[data-locale]')
+	.forEach(i => (i.textContent = chrome.i18n.getMessage(i.dataset.locale)));
+
+const showEmailsList = async () => {
+	const emailsArray = await storage.get('emailsArray');
+	const mailListHtml = emailsArray.reduce(
+		(a, v) =>
+			(a += `
+				<div>
+					<span>${v}</span>
+					<button data-email="${v}">
+						${chrome.i18n.getMessage('button_delete')}
+					</button>
+				</div>`
+			),
+		''
 	);
+	mailList.innerHTML = mailListHtml;
+};
 
-	const mailList = document.querySelector('#mail_list');
-
-	document.querySelector('button').addEventListener('click', saveOptions);
-
-	loadSavedOptions(await storage.getSettings());
-
-	function loadSavedOptions(arr){
-		mailList.value = '';
-		mailList.value = arr.join('\n');
+const addEmail = async () => {
+	const email = inputEmail.value;
+	if (email === '') return;
+	if (!inputEmail.checkValidity()) {
+		alert(chrome.i18n.getMessage('email_error'));
+		return;
 	}
-
-	function checkEmails(mla) {
-		const re = /\S+@\S+\.\S+/;
-		if (!mla.every(i => re.test(i)))
-			return false;
-		return true;
+	let emailsArray = await storage.get('emailsArray');
+	if (emailsArray.includes(email)) {
+		alert(chrome.i18n.getMessage('email_exist'));
+		return;
 	}
+	emailsArray.push(email);
+	storage.set({ emailsArray });
+	inputEmail.value = '';
+};
 
-	function saveOptions() {
-		const mailListArr = mailList.value.split('\n').map(i => i.trim()).filter(Boolean);
-		if (!checkEmails(mailListArr)) {
-			alert(i18n('email_error'));
-			return;
-		}
-		storage.saveSettings(mailListArr);
-		loadSavedOptions(mailListArr);
+const deleteEmail = async event => {
+	const target = event.target;
+	if (target.tagName !== 'BUTTON') return;
+	let emailsArray = await storage.get('emailsArray');
+	const indexOfEmail = email => emailsArray.findIndex(i => i === email);
+	emailsArray.splice(indexOfEmail(target.dataset.email), 1);
+	storage.set({ emailsArray });
+};
+
+const buttonDisabled = () => {
+	buttonAdd.disabled = inputEmail.value === '';
+};
+
+buttonAdd.addEventListener('click', addEmail);
+
+inputEmail.addEventListener('input', buttonDisabled);
+
+inputEmail.addEventListener('keydown', event => {
+	if (event.key === 'Enter') {
+		addEmail();
 	}
-})();
+});
+
+chrome.storage.onChanged.addListener(showEmailsList);
+
+mailList.addEventListener('click', deleteEmail);
+
+showEmailsList();

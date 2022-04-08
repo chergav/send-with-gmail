@@ -9,16 +9,27 @@
 		"message": "Параметры"
 	},
 	"options_title": {
-		"message": "Настройки расширения \"Send with Gmail\""
+		"message": "Настройки расширения $NAME$",
+		"placeholders": {
+			"name": {
+				"content": "Send with Gmail"
+			}
+		}
 	},
 	"label_mail_list": {
 		"message": "Введите адреса ниже, разделив новой строкой."
 	},
-	"button_save": {
-		"message": "сохранить"
+	"button_add": {
+		"message": "добавить"
+	},
+	"button_delete": {
+		"message": "удалить"
 	},
 	"email_error": {
-		"message": "Некоторые адрес(а) некорректны!"
+		"message": "Неверный формат email адреса!"
+	},
+	"email_exist": {
+		"message": "Email уже в списке."
 	},
 	"data_saved": {
 		"message": "Данные сохранены."

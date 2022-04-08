@@ -4,40 +4,24 @@
 	<meta charset="UTF-8">
 	<title data-locale="options_title"></title>
 	<style>
-		body{
+		body {
 			font-family: Roboto, sans-serif;
 			font-size: 1rem;
-			margin: 0;
 		}
-		#title{
-			display: flex;
-			align-items: center;
-		}
-		#title img{
-			margin-right: 1em;
-		}
-		#title, form{
-			padding: 1em;
-		}
-		button{
-			text-transform: uppercase;
+		button {
+			text-transform: capitalize;
 		}
 	</style>
 </head>
 <body>
-	<div id="title">
-		<img src="icons/icon_48.png" alt="">
-		<span>Send with Gmail</span>
+	<img src="icons/128.png" width="96" alt="">
+	<div>
+		<input type="email" id="inputEmail">
+		<button type="button" id="buttonAdd" data-locale="button_add" disabled></button>
+
 	</div>
-	
-	<form>
-		<label for="mail_list" data-locale="label_mail_list"></label>
-		<br>
-		<textarea id="mail_list" cols="40" rows="10"></textarea>
-		<br>
-		<button type="button" data-locale="button_save"></button>
-	</form>
-	
+	<hr>
+	<div id="mailList"></div>
 	<script src="options.js" type="module"></script>
 </body>
 </html>
